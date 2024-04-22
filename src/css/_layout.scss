@@ -305,6 +305,45 @@ main {
 
 }
 
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2em;
+    margin-top: 1em;
+
+    label {
+        font-size: 1.625em;
+        margin-bottom: .75em;
+    }
+
+    input {
+        width: 100%;
+        padding: .5em;
+        margin: 1em 0;
+        font-size: 1.25em;
+    }
+
+    input[type="submit" i] {
+        width: 50%;
+        font-size: 1.4em;
+        background-color: $bg-light;
+        border-radius: 1em;
+
+        &:hover {
+            background-color: darken($bg-light, 20%);
+            transition: 1s;
+            cursor: pointer;
+        }
+
+        &:active {
+            animation: rotateBtn .5s linear infinite;
+        }
+    }
+
+}
+
 footer {
     background-color: $footer-light;
     color: $text-light;
@@ -377,11 +416,15 @@ footer {
     }
 
     #pictureGrid {
-        grid-gap: 2.5em;
+        grid-gap: 2em;
+        overflow: hidden;
+        height: 1600px;
+        margin-top: 3em;
 
         #text1,
         #text2 {
             font-size: 2em;
+            animation: textSize 6s infinite alternate;
         }
     }
 

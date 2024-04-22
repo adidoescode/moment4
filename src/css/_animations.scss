@@ -24,3 +24,19 @@
         opacity: 100%;
     }
 }
+
+// Animation som får texterna i gridsen att pulsera smått
+
+@keyframes textSize {
+    100% {
+        font-size: 2.5em;
+    }
+}
+
+// Animation som ger submit knappen i formuläret en 360 på klick
+
+@keyframes rotateBtn {
+    100% {
+        transform: rotate(720deg);
+    }
+}
