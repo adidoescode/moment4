@@ -1,29 +1,26 @@
-// Importerar variabler
-
-@use "base" as *;
-
 // Keyframes för animationer
-
+@use "base" as *;
 // Animation som skakar köpsknappen för att ge den extra uppmärksamhet
 
-@keyframes btnRotation{
-    from{
+@keyframes btnRotation {
+    from {
         transform: rotate(5deg);
     }
-    to{
+
+    to {
         transform: rotate(-5deg);
     }
 }
 
 // Animation som fadear in färg på :hover element
-@keyframes fadeIn{
-    from{
-        color:$light-links;
-        opacity:0%;
+@keyframes fadeIn {
+    from {
+        color: $links-dark;
+        opacity: 70%;
     }
-    to{
-        background-color:$primary;
-        opacity:100%;
+
+    to {
+        color: $primary;
+        opacity: 100%;
     }
 }
-
