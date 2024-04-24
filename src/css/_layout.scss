@@ -127,6 +127,7 @@ nav {
     width: 200px;
     display: none;
     background-color: $bg-light;
+    z-index: 9999;
 
 
     ul {
@@ -207,9 +208,26 @@ main {
 
     }
 
-    svg {
-        width: 30%;
-        height: 30%;
+    #map {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 300px;
+
+
+    }
+
+
+    .sass-wrapper {
+        display: flex;
+        justify-content: center;
+        padding: 2em;
+        align-items: center;
+
+        img {
+            width: 50%;
+            animation: pulse 4s infinite;
+        }
     }
 
     .img-wrapper {
@@ -245,7 +263,7 @@ main {
         border-radius: 20px;
 
         li {
-            font-size: 1.25em;
+            font-size: 1.125em;
             font-weight: 600;
             padding: 15px;
             list-style-type: none;
@@ -294,6 +312,7 @@ main {
             font-size: 1.25em;
             padding: 1em;
             line-height: 1.4em;
+            margin: .5em 2em;
         }
 
         h3 {
@@ -330,6 +349,7 @@ form {
         font-size: 1.4em;
         background-color: $bg-light;
         border-radius: 1em;
+        border: none;
 
         &:hover {
             background-color: darken($bg-light, 20%);
@@ -337,9 +357,11 @@ form {
             cursor: pointer;
         }
 
-        &:active {
-            animation: rotateBtn .5s linear infinite;
-        }
+    }
+
+    .active {
+        animation: rotateBtn 1.4s forwards infinite;
+
     }
 
 }
@@ -464,6 +486,16 @@ footer {
                 line-height: 1.6;
             }
         }
+
+        .sass-wrapper {
+            padding: 5em;
+
+
+            img {
+                width: 25%;
+            }
+        }
+
     }
 
 
