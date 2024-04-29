@@ -1,28 +1,35 @@
+// Lägger till passiva listeners för att hindra default behaviour på scroll då det är en bugg med kartan
+
 document.addEventListener('touchstart', function () { }, { passive: true });
 document.addEventListener('touchmove', function () { }, { passive: true });
 
 async function initAutocomplete() {
+    // Skapar en ny map med vald latitud och longitud som laddas in när sidan startar
     const map = new google.maps.Map(document.getElementById("map"), {
         center: { lat: 58.767755, lng: 12.213290 },
         zoom: 13,
         mapTypeId: "roadmap",
     });
 
+    //Skapar även en marker för stället kartan laddas in på
+    const initialMarker = new google.maps.Marker({
+        map: map,
+        position: map.getCenter(),
+        title: 'Startplats för kartan'
+    });
 
-    // Create the search box and link it to the UI element.
+
+    // Skapar ett sökfält som blir länkat till ett ul-element
     const input = document.getElementById("pac-input");
     const searchBox = new google.maps.places.SearchBox(input);
 
-    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-    // Bias the SearchBox results towards current map's viewport.
     map.addListener("bounds_changed", () => {
         searchBox.setBounds(map.getBounds());
     });
 
     let markers = [];
 
-    // Listen for the event fired when the user selects a prediction and retrieve
-    // more details for that place.
+    // När användaren börjar skriva ger scripten en antagelse för vilken plats hen vill söka på 
     searchBox.addListener("places_changed", () => {
         const places = searchBox.getPlaces();
 
@@ -36,12 +43,12 @@ async function initAutocomplete() {
         });
         markers = [];
 
-        // For each place, get the icon, name and location.
+        // Hämtar icon, latitud och longitud för varje plats
         const bounds = new google.maps.LatLngBounds();
 
         places.forEach((place) => {
             if (!place.geometry || !place.geometry.location) {
-                console.log("Returned place contains no geometry");
+                console.log("Error - Returnerad plats innehåller ingen geometri");
                 return;
             }
 
@@ -53,7 +60,7 @@ async function initAutocomplete() {
                 scaledSize: new google.maps.Size(25, 25),
             };
 
-            // Create a marker for each place.
+            // Skapar ny marker för varje plats som söks upp
             markers.push(
                 new google.maps.Marker({
                     map,
@@ -63,7 +70,7 @@ async function initAutocomplete() {
                 }),
             );
             if (place.geometry.viewport) {
-                // Only geocodes have viewport.
+                // Bara geocodes har satt viewport
                 bounds.union(place.geometry.viewport);
             } else {
                 bounds.extend(place.geometry.location);

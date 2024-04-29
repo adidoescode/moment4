@@ -208,13 +208,24 @@ main {
 
     }
 
-    #map {
+    .map-container {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 300px;
+        flex-direction: column;
+    }
 
+    #map {
+        height: 500px;
+        width: 80vw;
+        margin-bottom: 2em;
+    }
 
+    .map-container #pac-input {
+        margin: 4em 0 2em 0;
+        font-size: 1em;
+        padding: .5em;
+        border-radius: .5em;
     }
 
 
@@ -464,6 +475,17 @@ footer {
             }
         }
 
+        #map {
+            width: 65vw;
+            height: 700px;
+
+        }
+
+        .map-container #pac-input {
+            padding: .75em;
+            font-size: 1.25em;
+        }
+
         h1 {
             font-size: 2.5em;
             margin-top: 1.5em;
@@ -507,6 +529,25 @@ footer {
 
         p {
             font-size: 1.5em;
+        }
+    }
+}
+
+@media only screen and (min-width:1501px) {
+    main {
+
+        .map-container #pac-input {
+            padding: 1em;
+            font-size: 1.5em;
+        }
+
+        #map {
+            width: 50vw;
+        }
+
+        article p {
+            font-size: 1.75em;
+            padding: 2em;
         }
     }
 }
