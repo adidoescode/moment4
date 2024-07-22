@@ -3,7 +3,7 @@
 <h2 align="center">Uppgiftsbeskrivning</h2>
 <h3>Syftet med uppgiften är att:</h3>
 <ul>
-<li>Förstå syftet med CSS-preprocessorer.</li>
-<li>Kunna använda SASS för att underlätta utveckling med CSS.</li>
-<li>Kunna automatisera konvertering av SASS-filer med Parcel.</li>
+<li>Förstå sig på animationer.</li>
+<li>Med hjälp av SCSS och Javascript ska animationer skapas som svarar på användarinteraktioner.</li>
+<li>Använda dessa verktyg för att skapa en estetisk och funktionell hemsida.</li>
 </ul>
